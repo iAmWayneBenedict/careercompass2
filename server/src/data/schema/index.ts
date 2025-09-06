@@ -1,1 +1,4 @@
-export * from "./users";
+export * from "@schema/users";
+export * from "@schema/accounts";
+export * from "@schema/sessions";
+export * from "@schema/verifications";

@@ -1,6 +1,6 @@
+import db from "@data/db";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import db from "data/db";
 
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
@@ -12,5 +12,9 @@ export const auth = betterAuth({
 		//     clientId: process.env.GOOGLE_CLIENT_ID,
 		//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 		// },
+	},
+
+	emailVerification: {
+		autoSignInAfterVerification: true,
 	},
 });

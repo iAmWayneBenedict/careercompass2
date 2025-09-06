@@ -6,12 +6,15 @@
 		"outDir": "./dist",
 		"baseUrl": "./src",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@data/*": ["./src/data/*"],
-			"@config/*": ["./src/config/*"],
-			"@services/*": ["./src/services/*"],
-			"@types/*": ["./src/types/*"],
-			"@middleware/*": ["./src/middleware/*"]
+			"@/*": ["./*"],
+			"@data/*": ["./data/*"],
+			"@lib/*": ["./lib/*"],
+			"@schema/*": ["./data/schema/*"],
+			"@routes/*": ["./routes/*"],
+			"@config/*": ["./config/*"],
+			"@services/*": ["./services/*"],
+			"@types/*": ["./types/*"],
+			"@middleware/*": ["./middleware/*"]
 		},
 
 		// Environment Settings
