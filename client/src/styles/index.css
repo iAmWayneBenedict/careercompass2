@@ -11,4 +11,4 @@
 @import "./prime-react.css";
 
 /* import tailwind v3 config */
-@config "../tailwind.config.js";
+@config "../../tailwind.config.js";
