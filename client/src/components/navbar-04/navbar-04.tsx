@@ -1,5 +1,4 @@
 import { Button } from "@heroui/react";
-import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import AppLogo from "../icons/logo";
