@@ -1,0 +1,92 @@
+name: Build React App and Deploy to Server
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: latest
+        
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+        
+    - name: Setup pnpm cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+          
+    - name: Install client dependencies
+      run: |
+        cd client
+        pnpm install --frozen-lockfile
+        
+    - name: Build React application
+      run: |
+        cd client
+        pnpm run build
+        
+    - name: Verify build output
+      run: |
+        if [ ! -d "client/dist" ]; then
+          echo "Error: Build failed - dist folder not found"
+          exit 1
+        fi
+        echo "Build successful - dist folder created"
+        ls -la client/dist
+        
+    - name: Copy dist folder to server
+      run: |
+        # Remove existing dist folder in server if it exists
+        rm -rf server/dist
+        # Copy the built dist folder from client to server
+        cp -r client/dist server/
+        echo "Dist folder copied to server directory"
+        ls -la server/dist
+        
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add server/dist
+        git commit -m "🚀 Auto-deploy: Update server dist folder with latest build [skip ci]"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: No changes detected
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: echo "No changes detected in build output"
