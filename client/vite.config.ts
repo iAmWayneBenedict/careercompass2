@@ -1,36 +1,26 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => ['md-linedivider'].includes(tag),
-        },
-      },
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
     }),
-    vueDevTools(),
+    react(),
     tailwindcss(),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@layouts": path.resolve(__dirname, "./src/layouts"),
+      "@providers": path.resolve(__dirname, "./src/providers"),
+      "@lib": path.resolve(__dirname, "./src/lib"),
     },
   },
-  server: {
-    host: '0.0.0.0',
-    port: 5173,
-    watch: {
-      usePolling: true, // Essential for Docker
-      interval: 1000,
-    },
-    hmr: {
-      port: 5173,
-    },
-  },
-})
+});
