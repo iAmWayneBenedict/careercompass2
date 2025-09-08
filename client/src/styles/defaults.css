@@ -1,14 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-
 @import "tailwindcss";
 @import "tw-animate-css";
-@plugin "../hero.ts";
-
-/* Note: You may need to change the path to fit your project structure */
-@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
-
-/* VITE ONLY: In "styled" mode you must add the PrimeReact Theme here. Do NOT include in "unstyled" mode */
-@import "primereact/resources/themes/lara-light-blue/theme.css";
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -92,4 +83,3 @@
     @apply bg-background text-foreground;
   }
 }
-@config "../tailwind.config.js";

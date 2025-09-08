@@ -1,0 +1,14 @@
+/* Font styles, tailwindcss imports and desclaration */
+@import "./constant-imports.css";
+
+/* HeroUI declaration */
+@import "./heroui.css";
+
+/* Default styling for shadcn ui */
+@import "./defaults.css";
+
+/* PrimeReact declaration */
+@import "./prime-react.css";
+
+/* import tailwind v3 config */
+@config "../tailwind.config.js";
