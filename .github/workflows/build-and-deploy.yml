@@ -82,7 +82,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add server/dist
-          git commit -m "🚀 Auto-deploy: Update server dist folder with latest build [skip ci]"
+          git commit -m "Auto-deploy: Update server dist folder with latest build [skip ci]"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
