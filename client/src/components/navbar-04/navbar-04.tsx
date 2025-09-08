@@ -1,35 +1,33 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@heroui/react";
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
+import AppLogo from "../icons/logo";
 
 const Navbar04Page = () => {
   return (
-    <div className="min-h-screen bg-muted">
-      <nav className="fixed top-6 inset-x-4 h-16 bg-background border dark:border-slate-700/70 max-w-(--breakpoint-xl) mx-auto rounded-full">
-        <div className="h-full flex items-center justify-between mx-auto px-4">
-          <Logo />
+    <nav className="fixed z-50 top-6 inset-x-4 h-16 bg-white/10 dark:bg-black/10 backdrop-blur-md border border-white/20 dark:border-white/10 max-w-(--breakpoint-xl) mx-auto rounded-full shadow-lg">
+      <div className="h-full flex items-center justify-between mx-auto px-4">
+        <AppLogo />
 
-          {/* Desktop Menu */}
-          <NavMenu className="hidden md:block" />
+        {/* Desktop Menu */}
+        <NavMenu className="hidden md:block" />
 
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              className="hidden sm:inline-flex rounded-full"
-            >
-              Sign In
-            </Button>
-            <Button className="rounded-full">Get Started</Button>
+        <div className="flex items-center gap-3">
+          <Button
+            color="primary"
+            className="hidden sm:inline-flex rounded-full !cursor-pointer"
+          >
+            Get Started
+          </Button>
 
-            {/* Mobile Menu */}
-            <div className="md:hidden">
-              <NavigationSheet />
-            </div>
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+            <NavigationSheet />
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
