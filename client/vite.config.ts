@@ -6,22 +6,23 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    tanstackRouter({
-      target: "react",
-      autoCodeSplitting: true,
-    }),
-    react(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@pages": path.resolve(__dirname, "./src/pages"),
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@layouts": path.resolve(__dirname, "./src/layouts"),
-      "@providers": path.resolve(__dirname, "./src/providers"),
-      "@lib": path.resolve(__dirname, "./src/lib"),
-    },
-  },
+	plugins: [
+		tanstackRouter({
+			target: "react",
+			autoCodeSplitting: true,
+		}),
+		react(),
+		tailwindcss(),
+	],
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "./src"),
+			"@pages": path.resolve(__dirname, "./src/pages"),
+			"@components": path.resolve(__dirname, "./src/components"),
+			"@layouts": path.resolve(__dirname, "./src/layouts"),
+			"@providers": path.resolve(__dirname, "./src/providers"),
+			"@lib": path.resolve(__dirname, "./src/lib"),
+			"@assets": path.resolve(__dirname, "./src/assets"),
+		},
+	},
 });

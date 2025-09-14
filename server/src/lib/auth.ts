@@ -11,6 +11,8 @@ export const auth = betterAuth({
     schema,
   }),
 
+  trustedOrigins: ["http://localhost:5173"],
+
   advanced: {
     defaultCookieAttributes: {
       sameSite: "none",

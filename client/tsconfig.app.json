@@ -14,7 +14,8 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@providers/*": ["./src/providers/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@assets/*": ["./src/assets/*"]
     },
 
     /* Bundler mode */

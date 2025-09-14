@@ -11,11 +11,11 @@ import { useRef } from "react";
 const Hero03 = () => {
   const arrowRef = useRef<ArrowRightIconHandle>(null);
   return (
-    <div className="min-h-screen w-full flex flex-col gap-16 items-center justify-center px-6 py-16 md:mt-24">
-      <div className="text-center max-w-3xl">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen gap-16 px-6 py-16 md:mt-24">
+      <div className="max-w-3xl text-center">
         <Badge
           variant="secondary"
-          className="rounded-full py-1 border-border"
+          className="py-1 rounded-full border-border"
           asChild
         >
           <Link to=".">
@@ -23,22 +23,23 @@ const Hero03 = () => {
           </Link>
         </Badge>
         <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter">
-          Customized Shadcn UI Blocks & Components
+          Your Job Hunt, But Organized AF
         </h1>
         <p className="mt-6 md:text-lg">
-          Explore a collection of Shadcn UI blocks and components, ready to
-          preview and copy. Streamline your development workflow with
-          easy-to-implement examples.
+          All your apps and callbacks, one clean dashboard. No chaos—just career
+          wins.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 mt-10">
           <Button
+            to="/auth"
+            as={Link}
             size="lg"
             color="primary"
-            className="rounded-full text-base"
+            className="text-base rounded-full"
             onMouseEnter={() => arrowRef.current?.startAnimation()}
             onMouseLeave={() => arrowRef.current?.stopAnimation()}
           >
-            Get Started <ArrowRightIcon ref={arrowRef} size={18} />
+            Start Tracking Now <ArrowRightIcon ref={arrowRef} size={18} />
           </Button>
         </div>
       </div>
