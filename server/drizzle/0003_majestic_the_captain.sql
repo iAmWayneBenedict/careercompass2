@@ -1,1 +1,0 @@
-ALTER TABLE "sessions" RENAME COLUMN "name" TO "user_id";

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@heroui/react";
+import { addToast, Button } from "@heroui/react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -10,6 +10,13 @@ import { useRef } from "react";
 
 const Hero03 = () => {
   const arrowRef = useRef<ArrowRightIconHandle>(null);
+  const handleToast = () => {
+    addToast({
+      title: "Just released v1.0.0",
+      description: "Check out the new features",
+    });
+    console.log(123);
+  };
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen gap-16 px-6 py-16 md:mt-24">
       <div className="max-w-3xl text-center">
@@ -18,7 +25,7 @@ const Hero03 = () => {
           className="py-1 rounded-full border-border"
           asChild
         >
-          <Link to=".">
+          <Link to="." onClick={handleToast}>
             Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
           </Link>
         </Badge>

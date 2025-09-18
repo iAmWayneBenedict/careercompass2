@@ -1,5 +1,5 @@
 {
-  "id": "f0781329-af1f-4d2f-b4c0-bbe4a6561c77",
+  "id": "32220d71-963d-41f3-85a2-57f88a99daee",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -181,8 +181,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "name": {
-          "name": "name",
+        "user_id": {
+          "name": "user_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -244,12 +244,6 @@
           "primaryKey": true,
           "notNull": true
         },
-        "user_id": {
-          "name": "user_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
         "identifier": {
           "name": "identifier",
           "type": "text",
@@ -264,7 +258,7 @@
         },
         "expires_at": {
           "name": "expires_at",
-          "type": "timestamp",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true
         },
@@ -284,21 +278,7 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "verifications_user_id_users_id_fk": {
-          "name": "verifications_user_id_users_id_fk",
-          "tableFrom": "verifications",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},

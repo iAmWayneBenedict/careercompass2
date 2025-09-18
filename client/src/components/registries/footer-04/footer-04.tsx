@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Button, Input } from "@heroui/react";
 import { Link } from "@tanstack/react-router";
 import {
   DribbbleIcon,
@@ -79,8 +78,10 @@ const Footer04Page = () => {
           <div className="max-w-xs w-full">
             <h6 className="font-medium">Stay up to date</h6>
             <form className="mt-6 flex items-center gap-2">
-              <Input type="email" placeholder="Enter your email" />
-              <Button>Subscribe</Button>
+              <Input label="Email" size="sm" radius="lg" type="email" />
+              <Button radius="full" color="primary" className="px-8">
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>

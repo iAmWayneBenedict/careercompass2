@@ -5,6 +5,8 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
 export const auth = betterAuth({
+  appName: "CareerCompass",
+
   database: drizzleAdapter(db, {
     provider: "pg", // or "mysql", "sqlite"
     // usePlural: true,
@@ -72,6 +74,21 @@ export const auth = betterAuth({
       expiresAt: "expires_at",
       createdAt: "created_at",
       updatedAt: "updated_at",
+    },
+  },
+
+  // RATE LIMIT
+  rateLimit: {
+    enabled: true,
+  },
+
+  // LOGGER
+  logger: {
+    disabled: false,
+    level: "error",
+    log: (level, message, ...args) => {
+      // Custom logging implementation
+      console.log(`[${level}] ${message}`, ...args);
     },
   },
 });
