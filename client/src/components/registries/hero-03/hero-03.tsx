@@ -1,12 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { addToast, Button } from "@heroui/react";
-import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import {
   ArrowRightIcon,
   type ArrowRightIconHandle,
 } from "@components/ui/arrow-right";
 import { useRef } from "react";
+import { Link } from "@tanstack/react-router";
 
 const Hero03 = () => {
   const arrowRef = useRef<ArrowRightIconHandle>(null);
@@ -38,7 +38,7 @@ const Hero03 = () => {
         </p>
         <div className="flex items-center justify-center gap-4 mt-10">
           <Button
-            to="/auth"
+            href="/auth"
             as={Link}
             size="lg"
             color="primary"

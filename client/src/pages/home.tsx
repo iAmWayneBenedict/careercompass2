@@ -1,5 +1,5 @@
 import Hero03 from "@/components/registries/hero-03/hero-03";
-import { withLayout } from "@/layouts/layout-manager";
+import { withLayout } from "@/layouts/layout-manager/with-layout";
 
 const HomePage = withLayout(function () {
 	return (

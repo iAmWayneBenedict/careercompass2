@@ -31,6 +31,9 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -61,11 +64,14 @@
   --border: hsl(var(--heroui-default-200));
   --input: hsl(var(--heroui-default-200));
   --ring: hsl(var(--heroui-focus));
-  --chart-1: hsl(var(--heroui-primary));
-  --chart-2: hsl(var(--heroui-secondary));
-  --chart-3: hsl(var(--heroui-success));
-  --chart-4: hsl(var(--heroui-warning));
-  --chart-5: hsl(var(--heroui-danger));
+  --chart-1: hsl(142, 69%, 58%); /* Primary green #46D277 */
+  --chart-2: hsl(200, 85%, 55%); /* Complementary blue #1FA2E6 */
+  --chart-3: hsl(280, 65%, 65%); /* Triadic purple #A946D2 */
+  --chart-4: hsl(35, 85%, 60%); /* Warm orange #E6A01F */
+  --chart-5: hsl(340, 75%, 65%); /* Accent pink #E64691 */
+  --chart-6: hsl(160, 50%, 45%); /* Darker green #3BA366 */
+  --chart-7: hsl(220, 70%, 50%); /* Deep blue #2663CC */
+  --chart-8: hsl(15, 80%, 58%); /* Coral red #E65A1F */
   --sidebar: hsl(var(--heroui-content1));
   --sidebar-foreground: hsl(var(--heroui-content1-foreground));
   --sidebar-primary: hsl(var(--heroui-primary));
