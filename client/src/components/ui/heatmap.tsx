@@ -74,7 +74,7 @@ const HeatmapChart = () => {
 
             const tooltipContent = (
               <div className="flex flex-col gap-1 p-1">
-                <div className="font-semibold text-sm text-black">
+                <div className="font-semibold text-xs text-black">
                   {formattedDate}
                 </div>
                 <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const HeatmapChart = () => {
                           : "#196127",
                     }}
                   />
-                  <span className="text-sm text-black">
+                  <span className="text-xs text-black">
                     {data.count || 0} application
                     {(data.count || 0) !== 1 ? "s" : ""}
                   </span>
