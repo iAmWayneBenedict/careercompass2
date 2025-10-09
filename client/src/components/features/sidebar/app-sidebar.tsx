@@ -14,9 +14,9 @@ import {
   SquareTerminal,
 } from "lucide-react";
 
-import { NavMain } from "@components/registries/sidebar/nav-main.tsx";
-import { NavProjects } from "@components/registries/sidebar/nav-projects.tsx";
-import { NavUser } from "@components/registries/sidebar/nav-user.tsx";
+import { NavMain } from "@/components/features/sidebar/nav-main";
+import { NavProjects } from "@/components/features/sidebar/nav-projects";
+import { NavUser } from "@/components/features/sidebar/nav-user";
 import {
   Sidebar,
   SidebarContent,

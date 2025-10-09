@@ -1,15 +1,8 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 
-import {
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import {
   type ChartConfig,
   ChartContainer,
@@ -132,7 +125,7 @@ export function ChartRadialStacked() {
                   dataKey={key}
                   stackId="a"
                   cornerRadius={25}
-                  fill={chartConfig[key].color}
+                  fill={chartConfig[key as keyof typeof chartConfig].color}
                   className="stroke-transparent stroke-2"
                 />
               ))}
@@ -140,7 +133,7 @@ export function ChartRadialStacked() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm mt-3 px-5">
-        <div className="grid grid-cols-2 grid-rows-2 w-full bg-foreground/5 p-2 gap-y-2 rounded-lg">
+        <div className="grid grid-cols-4 w-full bg-blocking p-5 gap-y-2 rounded-lg">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center">
               <h4 className="text-sm flex gap-1 items-center">

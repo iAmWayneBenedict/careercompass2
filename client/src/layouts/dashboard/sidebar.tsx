@@ -3,7 +3,7 @@ import React, {
   type RefAttributes,
 } from "react";
 import { Link } from "@tanstack/react-router";
-import { FileText, Users, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 import AppLogo from "@/components/icons/logo";
 import { Button, Tooltip } from "@heroui/react";
 import { UserIcon } from "@/components/ui/user";

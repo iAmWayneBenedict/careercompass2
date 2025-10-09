@@ -86,7 +86,7 @@ export default {
               800: "#585f5a",
               900: "#383c39",
               foreground: "#000",
-              DEFAULT: "#eee",
+              DEFAULT: "#e9f7ef",
             },
             primary: {
               50: "#e8f9ee",
@@ -160,6 +160,7 @@ export default {
             },
             background: "#fff",
             foreground: "#000",
+            blocking: "#e9f7ef",
             content1: {
               DEFAULT: "#ffffff",
               foreground: "#000",

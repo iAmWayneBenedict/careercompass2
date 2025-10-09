@@ -105,7 +105,7 @@ export function HorizoltalBarChart() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm mt-3">
-        <div className="bg-foreground/5 justify-between items-center flex w-full rounded-md p-3 px-5">
+        <div className="bg-blocking justify-between items-center flex w-full rounded-md p-3 px-5">
           <p className="text-black">Total Application</p>
           <h4 className="text-xl font-semibold text-foreground">123</h4>
         </div>

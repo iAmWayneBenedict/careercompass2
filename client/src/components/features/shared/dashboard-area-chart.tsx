@@ -147,9 +147,7 @@ const timeRangeOptions = [
 
 export function DashboardAreaChart() {
   const [rangeValue, setRangeValue] = useState<Selection>(new Set([]));
-  useEffect(() => {
-    console.log([...rangeValue][0]);
-  }, [rangeValue]);
+
   const filteredData = chartData.filter((item) => {
     const timeRange = [...rangeValue][0];
     const date = new Date(item.date);

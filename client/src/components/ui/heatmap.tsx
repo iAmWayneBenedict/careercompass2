@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import HeatMap from "@uiw/react-heat-map";
-import { Card, Tooltip } from "@heroui/react";
+import { Card } from "@heroui/react";
 import { CardContent, CardDescription, CardFooter, CardHeader } from "./card";
 import DashboardCardTitle from "./dashboard-card-title";
+import HeatmapRender from "../features/heatmap/heatmap-render";
 
 function generateFakeCommitData() {
   let commitsPerDate = [];
@@ -27,11 +28,18 @@ function generateFakeCommitData() {
 }
 
 const HeatmapChart = () => {
-  const [commitsPerDate, setCommitsPerDate] = useState([]);
+  const [commitsPerDate, setCommitsPerDate] = useState<
+    {
+      date: string;
+      count: number;
+    }[]
+  >([]);
 
-  useEffect(() => {
-    setCommitsPerDate(generateFakeCommitData());
+  useLayoutEffect(() => {
+    const data = generateFakeCommitData();
+    setCommitsPerDate(data);
   }, []);
+
   return (
     <Card className="pt-0 shadow-md py-5">
       <CardHeader className="border-b [.border-b]:pb-3">
@@ -46,7 +54,9 @@ const HeatmapChart = () => {
           endDate={new Date()}
           className="w-full h-42"
           rectSize={14}
-          legendRender={(props) => <rect {...props} y={props.y + 10} rx={5} />}
+          legendRender={(props) => (
+            <rect {...props} y={props.y || 0 + 10} rx={5} />
+          )}
           panelColors={{
             0: "#EBEDF0",
             20: "#C6E48B",
@@ -55,73 +65,7 @@ const HeatmapChart = () => {
             80: "#196127",
           }}
           rectProps={{ rx: 5 }}
-          rectRender={(props, data) => {
-            const date = new Date(data.date);
-            const formattedDate = date.toLocaleDateString("en-US", {
-              weekday: "short",
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            });
-
-            const getActivityLevel = (count: number) => {
-              if (count === 0) return "No activity";
-              if (count <= 20) return "Low activity";
-              if (count <= 40) return "Moderate activity";
-              if (count <= 60) return "High activity";
-              return "Very high activity";
-            };
-
-            const tooltipContent = (
-              <div className="flex flex-col gap-1 p-1">
-                <div className="font-semibold text-xs text-black">
-                  {formattedDate}
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-3 h-3 rounded-sm"
-                    style={{
-                      backgroundColor:
-                        data.count === 0
-                          ? "#EBEDF0"
-                          : data.count <= 20
-                          ? "#C6E48B"
-                          : data.count <= 40
-                          ? "#7BC96F"
-                          : data.count <= 60
-                          ? "#239A3B"
-                          : "#196127",
-                    }}
-                  />
-                  <span className="text-xs text-black">
-                    {data.count || 0} application
-                    {(data.count || 0) !== 1 ? "s" : ""}
-                  </span>
-                </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                  {getActivityLevel(data.count || 0)}
-                </div>
-              </div>
-            );
-
-            return (
-              <Tooltip
-                key={props.key}
-                placement="top"
-                showArrow
-                color="foreground"
-                content={tooltipContent}
-                delay={200}
-                closeDelay={100}
-                classNames={{
-                  content:
-                    "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-lg",
-                }}
-              >
-                <rect {...props} />
-              </Tooltip>
-            );
-          }}
+          rectRender={(props, data) => <HeatmapRender data={data} {...props} />}
         />
       </CardContent>
       <CardFooter className="px-5">

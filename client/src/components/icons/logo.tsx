@@ -2,14 +2,23 @@ import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 
 type Props = {
+  className?: string;
   logoClassNames?: string;
   showText?: boolean;
   to?: string;
 };
 
-const AppLogo = ({ logoClassNames, showText = false, to = "/" }: Props) => {
+const AppLogo = ({
+  className,
+  logoClassNames,
+  showText = false,
+  to = "/",
+}: Props) => {
   return (
-    <Link to={to} className="flex w-full gap-1 items-center justify-center">
+    <Link
+      to={to}
+      className={cn("flex w-full gap-1 items-center justify-center", className)}
+    >
       <svg
         className={cn("w-20", logoClassNames)}
         viewBox="0 0 33 13"

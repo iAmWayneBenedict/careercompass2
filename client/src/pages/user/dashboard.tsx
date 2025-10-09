@@ -1,5 +1,5 @@
-import { DashboardAreaChart } from "@/components/registries/tremor/dashboard-area-chart";
-import KPI from "@/components/registries/tremor/kpi";
+import { DashboardAreaChart } from "@/components/features/shared/dashboard-area-chart";
+import KPI from "@/components/features/shared/kpi";
 import { BellIcon } from "@/components/ui/bell";
 import HeatmapChart from "@/components/ui/heatmap";
 import { HorizoltalBarChart } from "@/components/ui/horizontal-bar-chart";
