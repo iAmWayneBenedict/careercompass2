@@ -35,7 +35,7 @@ const HeatmapChart = () => {
   const [commitsPerDate, setCommitsPerDate] = useState([]);
 
   useEffect(() => {
-    setCommitsPerDate(generateFakeCommitData());
+    setCommitsPerDate(generateFakeCommitData() as any);
   }, []);
   return (
     <Card className="pt-0 shadow-md py-5">
@@ -47,11 +47,13 @@ const HeatmapChart = () => {
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <HeatMap
           value={commitsPerDate}
-          startDate={new Date(commitsPerDate?.[0]?.date || "")}
+          startDate={new Date((commitsPerDate as any)?.[0]?.date || "")}
           endDate={new Date()}
           className="w-full h-42"
           rectSize={14}
-          legendRender={(props) => <rect {...props} y={props.y + 10} rx={5} />}
+          legendRender={(props) => (
+            <rect {...props} y={Number(props.y || 0) + 10} rx={5} />
+          )}
           panelColors={{
             0: "#EBEDF0",
             20: "#C6E48B",

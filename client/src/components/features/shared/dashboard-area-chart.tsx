@@ -2,12 +2,7 @@
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
-import {
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import {
   type ChartConfig,
   ChartContainer,
@@ -17,7 +12,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Card, Select, SelectItem, type Selection } from "@heroui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DashboardCardTitle from "@/components/ui/dashboard-card-title";
 
 export const description = "An interactive area chart";

@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring } from "motion/react";
-import {
-  parseMetric,
-  formatMetricValue,
-  type ParsedMetric,
-} from "@/lib/metric-utils";
+import { parseMetric, formatMetricValue } from "@/lib/metric-utils";
 
 interface CountUpProps {
   to: number | string;
@@ -27,7 +23,6 @@ export default function CountUp({
   duration = 2,
   className = "",
   startWhen = true,
-  separator = "",
   onStart,
   onEnd,
 }: CountUpProps) {
@@ -67,21 +62,16 @@ export default function CountUp({
 
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
-  const getDecimalPlaces = (num: number): number => {
-    const str = num.toString();
-    if (str.includes(".")) {
-      const decimals = str.split(".")[1];
-      if (parseInt(decimals) !== 0) {
-        return decimals.length;
-      }
-    }
-    return 0;
-  };
-
-  const maxDecimals = Math.max(
-    getDecimalPlaces(parsedFrom.numericValue),
-    getDecimalPlaces(parsedTo.numericValue)
-  );
+  // const getDecimalPlaces = (num: number): number => {
+  //   const str = num.toString();
+  //   if (str.includes(".")) {
+  //     const decimals = str.split(".")[1];
+  //     if (parseInt(decimals) !== 0) {
+  //       return decimals.length;
+  //     }
+  //   }
+  //   return 0;
+  // };
 
   useEffect(() => {
     if (ref.current) {

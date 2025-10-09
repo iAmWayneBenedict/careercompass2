@@ -1,4 +1,4 @@
-import { withLayout } from "@/layouts/layout-manager";
+import { withLayout } from "@/layouts/layout-manager/with-layout";
 import { createFileRoute } from "@tanstack/react-router";
 
 const About = withLayout(function () {
